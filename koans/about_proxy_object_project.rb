@@ -16,6 +16,47 @@ class Proxy
   def initialize(target_object)
     @object = target_object
     # ADD MORE CODE HERE
+    @metodos = []
+  end
+
+  def upcase!
+   @metodos << :upcase!
+   @object.upcase!
+  end
+
+  def split
+   @metodos << :split
+   @object.split
+  end
+
+  def channel=(canal)
+    @metodos << :channel=
+    @object.channel = canal   
+  end
+
+  def channel
+   @object.channel
+  end
+
+   def power
+    @metodos << :power
+    @object.power
+   end
+
+  def on?
+   @object.on?
+  end
+
+  def messages
+    @metodos
+  end
+
+  def called?(metodo)
+    @metodos.include?metodo
+  end
+
+  def number_of_times_called(metodo)
+   @metodos.select{|el| el == metodo}.size
   end
 
   # WRITE CODE HERE
